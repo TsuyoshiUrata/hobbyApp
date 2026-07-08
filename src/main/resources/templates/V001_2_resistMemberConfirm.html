@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security" lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <title>メンバー登録確認</title>
+</head>
+
+<body>
+    <div class="header">
+        <h3> ヘッダー </h3>
+        <div th:insert="~{header}"> </div>
+    </div>
+
+    <hr>
+    <br>
+
+    <div class="body">
+        <h1>メンバー登録確認</h1>
+
+        <p class="error" th:text="${message}"> エラーメッセージ </p>
+
+        <table class="confirm-table" border="1">
+            <tr>
+                <th> 氏名 </th>
+                <td th:text="${memberDto.MemberName}"> MemberName </td>
+            </tr>
+            <tr>
+                <th> メールアドレス </th>
+                <td th:text="${memberDto.MemberMail}"> MemberMail </td>
+            </tr>
+            <tr>
+                <th> 電話番号 </th>
+                <td th:text="${memberDto.MemberPhone}"> MemberPhone </td>
+            </tr>
+            <tr>
+                <th> 郵便番号 </th>
+                <td th:text="${memberDto.MemberPost}"> MemberPost </td>
+            </tr>
+            <tr>
+                <th> 住所 </th>
+                <td th:text="${memberDto.memberAddress}"> MemberAdress </td>
+            </tr>
+            <tr>
+                <th> 権限 </th>
+                <td th:text="${memberDto.memberRole}"> MemberRole </td>
+            </tr>
+            <tr>
+                <th> 誕生日 </th>
+                <td th:text="${memberDto.memberBirth}"> MemberBirth </td>
+            </tr>
+            <tr>
+                <th> パスワード </th>
+                <td th:text="${memberDto.memberPass}"> MemberPass </td>
+            </tr>
+
+        </table>
+
+        <form method="get" th:action="@{/resistMemberRevise}" th:object="${resistMemberDto}">
+            <button  class="common-button">
+                入力画面へ戻る
+            </button>
+        </form>
+        <form method="post" th:action="@{/resistMemberComplete}" th:object="${resistMemberDto}">
+            <button  class="common-button">
+                登録
+            </button>
+        </form>
+
+
+    </div>
+</body>
+
+</html>

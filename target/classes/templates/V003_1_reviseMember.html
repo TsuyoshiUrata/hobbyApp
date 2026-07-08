@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security" lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <title>メンバー情報修正</title>
+</head>
+
+<body>
+    <div class="header">
+        <h3> ヘッダー </h3>
+        <div th:insert="~{header}"> </div>
+    </div>
+
+    <hr>
+    <br>
+
+    <div class="body">
+        <h1>メンバー情報修正</h1>
+        <p class="error" th:text="${message}"> エラーメッセージ </p>
+
+        <form method="get" th:action="@{/reviseMemberConfirm}" th:object="${reviseMemberForm}" class="input-form">
+            <table class="input-table">
+                <tr>
+                    <th> メンバーコード </th>
+                    <td>
+                        <span th:text="*{memberCode}"></span>
+                        <input type="hidden" th:field="*{memberCode}">
+                    </td>
+                </tr>
+                <tr>
+                    <th> 氏名 </th>
+                    <td> <input type="text" maxlength="20" th:field="*{memberName}" placeholder="浦田　剛志"
+                            th:attr="data-original=*{memberName}">
+                        <div th:errors="*{memberName}" class="input-error"> エラーメッセージ </div>
+                    </td>
+                </tr>
+                <tr>
+                    <th> メールアドレス </th>
+                    <td> <input type="email" th:field="*{memberMail}" placeholder="urata@tsuyoshi.com"
+                            th:attr="data-original=*{memberMail}">
+                        <div th:errors="*{memberMail}" class="input-error"> エラーメッセージ </div>
+                    </td>
+                </tr>
+                <tr>
+                    <th> 電話番号 </th>
+                    <td> <input type="text" maxlength="20" th:field="*{memberPhone}" pattern="\d{2,4}-\d{2,4}-\d{2,4}"
+                            placeholder="000-0000-0000" th:attr="data-original=*{memberPhone}">
+                        <div th:errors="*{memberPhone}" class="input-error"> エラーメッセージ </div>
+                    </td>
+                </tr>
+                <tr>
+                    <th> 郵便番号 </th>
+                    <td> <input type="text" maxlength="8" th:field="*{memberPost}" pattern="\d{3}-\d{4}"
+                            placeholder="000-0000" id="memberPost" th:attr="data-original=*{memberPost}">
+                        <div th:errors="*{memberPost}" class="input-error"> エラーメッセージ </div>
+                    </td>
+                </tr>
+                <tr>
+                    <th> 住所 </th>
+                    <td> <input type="text" maxlength="50" th:field="*{memberAddress}" placeholder="東京都江東区枝川"
+                            id="memberAddress" th:attr="data-original=*{memberAddress}">
+                        <div th:errors="*{memberAddress}" class="input-error"> エラーメッセージ </div>
+                    </td>
+                </tr>
+
+                <tr>
+                    <th> 誕生日 </th>
+                    <td> <input type="date" th:field="*{memberBirth}" max="9999-12-31"
+                            th:attr="data-original=*{memberBirth}">
+                        <div th:errors="*{memberBirth}" class="input-error"> エラーメッセージ </div>
+                    </td>
+                </tr>
+
+            </table>
+            <button id="confirmButton" class="common-button" disabled>
+                確認画面へ
+            </button>
+        </form>
+
+    </div>
+
+    <!--郵便番号から住所を自動入力するjavaScript-->
+    <script>
+        const post = document.getElementById("memberPost");
+
+        post.addEventListener("input", function () {
+
+            const zipcode = this.value.replace("-", "");
+
+            if (zipcode.length !== 7) {
+                return;
+            }
+
+            fetch("https://zipcloud.ibsnet.co.jp/api/search?zipcode=" + zipcode)
+                .then(response => response.json())
+                .then(data => {
+
+                    if (data.results) {
+                        const result = data.results[0];
+
+                        document.getElementById("memberAddress").value =
+                            result.address1 +
+                            result.address2 +
+                            result.address3;
+                        checkChanged();
+                    } else {
+                        alert("住所が見つかりませんでした。");
+                    }
+                })
+                .catch(error => {
+                    console.error(error);
+                });
+
+        });
+    </script>
+
+
+    <!-- 非活性ボタンjavascript -->
+    <script>
+        const button = document.getElementById("confirmButton");
+
+        function checkChanged() {
+
+            let changed = false;
+
+            document.querySelectorAll("input").forEach(input => {
+
+                if (input.dataset.original === undefined) {
+                    return;
+                }
+
+                if (input.value !== input.dataset.original) {
+                    changed = true;
+                }
+
+            });
+
+            button.disabled = !changed;
+        }
+
+        document.querySelectorAll("input").forEach(input => {
+            input.addEventListener("input", checkChanged);
+            input.addEventListener("change", checkChanged);
+        });
+
+        checkChanged();
+    </script>
+
+<a th:href="@{/revisePassword}">パスワード変更はこちら</a>
+</body>
+
+</html>

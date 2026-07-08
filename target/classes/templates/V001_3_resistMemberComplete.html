@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security" lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <title>メンバー登録確定</title>
+</head>
+
+<body>
+    <div class="header">
+        <h3> ヘッダー </h3>
+        <div th:insert="~{header}"> </div>
+    </div>
+
+    <hr>
+    <br>
+
+    <div class="body">
+        <h1>メンバー登録確定</h1>
+
+        <text> 登録完了 </text>
+
+        <form method="get" th:action="@{/top}">
+            <button  class="common-button">
+                メニュー画面に戻る
+            </button>
+        </form>
+
+
+    </div>
+</body>
+
+</html>

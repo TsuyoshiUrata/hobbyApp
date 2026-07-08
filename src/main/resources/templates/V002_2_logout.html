@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security" lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <title>ログアウト</title>
+</head>
+
+<body>
+    <div class="header">
+        <h3> ヘッダー </h3>
+        <div th:insert="~{header}"> </div>
+    </div>
+
+    <hr>
+    <br>
+
+    <div class="body">
+
+
+        <h1>ログアウトしました</h1>
+
+        <form th:action="@{/top}" method="get">
+            <button class="common-button">トップに戻る</button>
+        </form>
+
+    </div>
+</body>
+
+</html>

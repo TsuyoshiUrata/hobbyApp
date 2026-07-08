@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security" lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <title>ログイン</title>
+</head>
+
+<body>
+    <div class="header">
+        <h3> ヘッダー </h3>
+        <div th:insert="~{header}"> </div>
+    </div>
+
+    <hr>
+    <br>
+
+    <div class="body">
+        <!-- リクエストパワメータでエラー発生をparam.errorで検知できる -->
+        <div th:if="${param.error}" class="error">
+            会員コードまたはパスワードが正しくありません。
+        </div>
+
+        <h1>ログイン</h1>
+
+        <form th:action="@{/login}" method="post" class="input-form">
+
+            <table class="input-table">
+                <tr>
+                    <th> メンバーコード </th>
+                    <td>
+                        <input type="text" name="username" maxlength="6" placeholder="CM0000">
+                    </td>
+                </tr>
+
+                <tr>
+                    <th> パスワード </th>
+                    <td>
+                        <input type="password" name="password" maxlength="20">
+                    </td>
+                </tr>
+            </table>
+
+            <button class="common-button">ログイン</button>
+        </form>
+
+    </div>
+
+    <a th:href="@{/revisePassword}">ID/パスワードを忘れた方はこちら</a>
+</body>
+
+</html>
