@@ -2,7 +2,7 @@ package com.example.hobby.Dao;
 
 /** */
 @org.springframework.stereotype.Repository()
-@javax.annotation.processing.Generated(value = { "Doma", "2.58.0" }, date = "2026-06-30T20:20:14.681+0900")
+@javax.annotation.processing.Generated(value = { "Doma", "2.58.0" }, date = "2026-07-08T22:49:05.073+0900")
 @org.seasar.doma.DaoImplementation
 public class MemberNumberingDaoImpl implements com.example.hobby.Dao.MemberNumberingDao, org.seasar.doma.jdbc.ConfigProvider {
 

@@ -1,7 +1,7 @@
 package com.example.hobby.Entity;
 
 /** */
-@javax.annotation.processing.Generated(value = { "Doma", "2.58.0" }, date = "2026-06-30T20:19:31.088+0900")
+@javax.annotation.processing.Generated(value = { "Doma", "2.58.0" }, date = "2026-07-08T22:48:28.873+0900")
 @org.seasar.doma.EntityTypeImplementation
 public final class _MemberNumbering extends org.seasar.doma.jdbc.entity.AbstractEntityType<com.example.hobby.Entity.MemberNumbering> {
 
