@@ -1,6 +1,7 @@
 body {
     background-color: #ffffff;
-    font-family: sans-serif; /* 全体のフォント */
+    font-family: sans-serif;
+    /* 全体のフォント */
     margin: 0;
     padding: 30px;
 }
@@ -12,7 +13,7 @@ h1 {
 }
 
 
-h2{
+h2 {
     text-align: center;
     color: #333333;
 }
@@ -27,7 +28,7 @@ a {
 
 
 /* センタリングclass */
-.center{
+.center {
     text-align: center;
     margin: 0 auto;
 }
@@ -36,25 +37,32 @@ a {
 
 
 /* 入力form全体 */
-.input-form{
-    width: 700px;/* 幅 */
-    margin: 30px auto;/* 要素を中央寄せ */
-    padding: 30px;/* 要素の内側の余白 */
+.input-form {
+    width: 700px;
+    /* 幅 */
+    margin: 30px auto;
+    /* 要素を中央寄せ */
+    padding: 30px;
+    /* 要素の内側の余白 */
     background-color: white;
     border-radius: 15px;
-    box-shadow: 0px 0px 15px rgba(0,0,0,0.15);/* box-shadow: x方向 y方向 ぼかし 色 */
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.15);
+    /* box-shadow: x方向 y方向 ぼかし 色 */
 }
 
 /* input-formクラスのtableについて */
-.input-form table{
+.input-form table {
     margin: 0 auto;
 }
 
 /* 選択欄 */
-select{
-    width: 97%;/* 幅 */
-    margin: 5px auto;/* 要素を中央寄せ */
-    padding: 10px;/* 要素の内側の余白 */
+select {
+    width: 97%;
+    /* 幅 */
+    margin: 5px auto;
+    /* 要素を中央寄せ */
+    padding: 10px;
+    /* 要素の内側の余白 */
     background-color: white;
     border-radius: 5px;
     border: 1px solid #cccccc;
@@ -62,48 +70,56 @@ select{
 
 
 /* 入力table */
-.input-table{
-    width: 100%;/* 横幅 */
-    border-collapse: collapse;/* 線を一重にする */
+.input-table {
+    width: 100%;
+    /* 横幅 */
+    border-collapse: collapse;
+    /* 線を一重にする */
 }
 
 /* 確認table */
-.confirm-table{
-    width: 50%;/* 横幅 */
-    border-collapse: collapse;/* 線を一重にする */
+.confirm-table {
+    width: 50%;
+    /* 横幅 */
+    border-collapse: collapse;
+    /* 線を一重にする */
     text-align: center;
     margin: auto;
 }
 
 /* メンバー詳細table */
-.memberDetail-table{
-    width: 90%;/* 横幅 */
-    border-collapse: collapse;/* 線を一重にする */
+.memberDetail-table {
+    width: 90%;
+    /* 横幅 */
+    border-collapse: collapse;
+    /* 線を一重にする */
     text-align: center;
     margin: auto;
-    table-layout:auto;
+    table-layout: auto;
 }
 
 
 
 /* 見出しセル */
-th{
+th {
     /* width: 30%;/* 表のうち何割が見出しか */
-    padding: 15px;/* セル内の余白 */
+    padding: 15px;
+    /* セル内の余白 */
     text-align: center;
     background-color: #eeeeee;
-    border-bottom: 1px solid #cccccc;/* 下線 */
+    border-bottom: 1px solid #cccccc;
+    /* 下線 */
 }
 
 /* データセル */
-td{
+td {
     padding: 15px;
     background-color: #ffffff;
     border-bottom: 1px solid #cccccc;
 }
 
 /* 入力欄 */
-input{
+input {
     width: 90%;
     padding: 10px;
     border: 1px solid #cccccc;
@@ -112,15 +128,16 @@ input{
 }
 
 /* inputを選択した時 */
-input:focus{
-    outline: none; /*デフォルトの青枠を消す */
-    border: 2px solid #ff4400; 
+input:focus {
+    outline: none;
+    /*デフォルトの青枠を消す */
+    border: 2px solid #ff4400;
     background-color: #ffd5b5;
 }
 
 
 /* 共通ボタン */
-.common-button{
+.common-button {
     display: block;
     width: 300px;
     padding: 12px;
@@ -136,8 +153,8 @@ input:focus{
 }
 
 /*ヘッダーのボタン*/
-.header-button{
-    
+.header-button {
+
     display: block;
     width: 120px;
     padding: 5px;
@@ -153,40 +170,44 @@ input:focus{
 
 /* ボタンにマウスカーソルが乗った時の処理 */
 /* コロンは擬似クラスといい，hoverはマウスが乗っている状態を表す */
-.common-button:hover{
+.common-button:hover {
     background-color: #ff0000;
     transform: scale(1.02);
 }
 
-.header-button:hover{
+.header-button:hover {
     background-color: #18c5ff;
     transform: scale(1.5);
 }
 
 /* ボタンをクリックしている瞬間 */
-button:active{
+button:active {
     transform: scale(0.98);
 }
 
 /* エラーメッセージ */
-.error{
+.error {
     color: #ff0000;
     font-size: 20px;
-    font-weight: 1000; /* 太さ */
+    font-weight: 1000;
+    /* 太さ */
     text-align: center;
 }
 
 /* エラーメッセージ */
-.input-error{
+.input-error {
     color: #ff0000;
     font-size: 15px;
-    font-weight: 750; /* 太さ */
+    font-weight: 750;
+    /* 太さ */
     text-align: left;
 }
 
 .container {
-  display: flex; /* これだけで子要素が横並びになります */
-  gap: 10px;      /* 要素と要素の間の余白（任意） */
+    display: flex;
+    /* これだけで子要素が横並びになります */
+    gap: 10px;
+    /* 要素と要素の間の余白（任意） */
 }
 
 /* 非活性ボタン */
@@ -200,18 +221,51 @@ button:active{
 
 
 /* ラジオボタン */
-.radio-group{
+.radio-group {
     text-align: left;
 }
-.radio-group label{
+
+.radio-group label {
     margin-right: 30px;
     cursor: pointer;
 }
-.radio-group input[type="radio"]{
+
+.radio-group input[type="radio"] {
     width: auto;
     margin-right: 5px;
     vertical-align: middle;
 }
+
+
+/*アコーディオン*/
+.details {
+    height: auto;
+    border-left: 2px solid #00a5a0;
+    border-right: 2px solid #00a5a0;
+    border-bottom: 2px solid #00a5a0;
+    box-sizing: auto;
+}
+
+.details[open] {
+    height: auto;
+    background-color: #ffffff;
+}
+
+.details-summary {
+    display: block;
+    padding: 20px;
+    border-top: 2px solid #00a5a0;
+    border-bottom: 2px solid #00a5a0;
+    font-size: 20px;
+    font-weight: bold;
+    transition: all ease-in-out .3s;
+
+    &:hover {
+        cursor: pointer;
+        background-color: #bee1de;
+    }
+}
+
 
 
 
@@ -220,7 +274,7 @@ button:active{
 /* 確認画面では入力欄ではなく文字を表示することが多い */
 
 /* 確認画面の表示用class */
-.confirm-value{
+.confirm-value {
     padding: 10px;
     background-color: #f8f8f8;
     border-radius: 5px;
