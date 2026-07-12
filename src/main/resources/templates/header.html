@@ -20,19 +20,19 @@
             </form>
 
 
-            
-<div sec:authorize="isAuthenticated()">
-    <span sec:authentication="name"></span>
-    <span sec:authentication="principal.memberDto.memberName"></span>
 
-    <span th:switch="${#authentication.principal.memberDto.memberRole}">
-        <span th:case="'employee'">従業員</span>
-        <span th:case="'customer'">顧客</span>
-        <span th:case="*">不明</span>
-    </span>
+            <div sec:authorize="isAuthenticated()">
+                <span sec:authentication="name"></span>
+                <span sec:authentication="principal.memberDto.memberName"></span>
 
-    <span sec:authentication="principal.memberDto.memberRank"></span>
-</div>
+                <span th:switch="${#authentication.principal.memberDto.memberRole}">
+                    <span th:case="'employee'">従業員</span>
+                    <span th:case="'customer'">顧客</span>
+                    <span th:case="*">不明</span>
+                </span>
+
+                <span sec:authentication="principal.memberDto.memberRank"></span>
+            </div>
 
             <div sec:authorize="isAnonymous()">
                 ゲスト
@@ -42,6 +42,7 @@
 
 
     </div>
+    <hr>
 </body>
 
 </html>

@@ -19,7 +19,7 @@
     <br>
 
     <div class="body">
-        <h1>メニュー</h1>
+        <!-- <h1>メニュー</h1>
         <form th:action="@{/resistMember}" method="get">
             <button class="common-button">
                 メンバー登録
@@ -45,45 +45,45 @@
             <form th:action="@{/reviseMember}" method="get">
                 <button class="common-button">メンバー情報修正</button>
             </form>
+        </div> -->
+
+        <div class="accordion-container">
+            <details class="details">
+                <summary class="details-summary">ログイン/ログアウト</summary>
+                <form th:action="@{login}" method="get">
+                    <button class="common-button">
+                        ログイン
+                    </button>
+                </form>
+                <div sec:authorize="isAuthenticated()">
+                    <form th:action="@{/logout}" method="post">
+                        <button class="common-button">ログアウト</button>
+                    </form>
+                </div>
+                <br>
+            </details>
+
+
+            <details class="details">
+                <summary class="details-summary">メンバー管理</summary>
+                <form th:action="@{/resistMember}" method="get">
+                    <button class="common-button">
+                        メンバー登録
+                    </button>
+                </form>
+                <div sec:authorize="isAuthenticated()">
+                    <form th:action="@{/reviseMember}" method="get">
+                        <button class="common-button">メンバー情報修正</button>
+                    </form>
+                </div>
+                <form th:action="@{/memberList}" method="get">
+                    <button class="common-button">
+                        メンバー一覧
+                    </button>
+                </form>
+                <br>
+            </details>
         </div>
-
-
-        <details class="details">
-            <summary class="details-summary">ログイン/ログアウト</summary>
-            <form th:action="@{login}" method="get">
-                <button class="common-button">
-                    ログイン
-                </button>
-            </form>
-            <div sec:authorize="isAuthenticated()">
-                <form th:action="@{/logout}" method="post">
-                    <button class="common-button">ログアウト</button>
-                </form>
-            </div>
-            <br>
-        </details>
-
-        <br>
-
-        <details class="details">
-            <summary class="details-summary">メンバー管理</summary>
-            <form th:action="@{/resistMember}" method="get">
-                <button class="common-button">
-                    メンバー登録
-                </button>
-            </form>
-            <div sec:authorize="isAuthenticated()">
-                <form th:action="@{/reviseMember}" method="get">
-                    <button class="common-button">メンバー情報修正</button>
-                </form>
-            </div>
-            <form th:action="@{/memberList}" method="get">
-                <button class="common-button">
-                    メンバー一覧
-                </button>
-            </form>
-            <br>
-        </details>
 
     </div>
 </body>

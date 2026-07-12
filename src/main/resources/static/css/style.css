@@ -152,6 +152,13 @@ input:focus {
     transition: 0.3s;
 }
 
+.header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: white;
+}
+
 /*ヘッダーのボタン*/
 .header-button {
 
@@ -239,11 +246,13 @@ button:active {
 
 /*アコーディオン*/
 .details {
+    width: 500px;
+    max-width: 100%;
     height: auto;
     border-left: 2px solid #00a5a0;
     border-right: 2px solid #00a5a0;
     border-bottom: 2px solid #00a5a0;
-    box-sizing: auto;
+    box-sizing: border-box;
 }
 
 .details[open] {
@@ -266,6 +275,14 @@ button:active {
     }
 }
 
+/* アコーディオン全体 */
+.accordion-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 24px;
+    align-items: flex-start; 
+}
 
 
 
