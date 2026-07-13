@@ -328,6 +328,36 @@ button:active {
   display: block;
 }
 
+/* tableを囲む親 */
+.product-table-area {
+    position: relative;
+    width: fit-content;
+    margin: 0 auto;
+}
+
+
+/* 在庫バッジ */
+.stock-badge {
+    position: absolute;
+
+    /* テーブル左上に重ねる */
+    top: -18px;
+    left: -18px;
+
+    background: #e60012;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+
+    padding: 10px 20px;
+    border-radius: 999px;
+    z-index: 10;
+    box-shadow: 0 4px 8px rgba(0,0,0,.25);
+}
+
+
+
+
 
 
 
