@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security" lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <title>メンバー詳細</title>
+</head>
+
+<body>
+    <div class="header">
+        <h3> ヘッダー </h3>
+        <div th:insert="~{header}"> </div>
+    </div>
+
+    <hr>
+    <br>
+
+    <div class="body">
+
+
+        <h1>商品選択</h1>
+
+        <div class="tab-switch">
+            <label><input type="radio" name="TAB" checked>家電</label>
+            <div class="tab-content">
+                <table border="2" align="center">
+                    <tr>
+                        <th>商品名</th>
+                        <th>値段</th>
+                        <th>特徴</th>
+                    </tr>
+                    <tr th:each="product : ${listProductDto}" th:if="${product.categoryId == 1}">
+                        <td>
+                            <a th:href="@{/productDetail/{productId}(productId=${product.productId})}">
+                                <p th:text="*{product.productName}"></p>
+                            </a>
+                        </td>
+                        <td th:text="*{product.price}"></td>
+                        <td th:text="*{product.description}"></td>
+                    </tr>
+                </table>
+            </div>
+
+            <label><input type="radio" name="TAB">パソコン・周辺機器</label>
+            <div class="tab-content">
+                <table border="2" align="center">
+                    <tr>
+                        <th>商品名</th>
+                        <th>値段</th>
+                        <th>特徴</th>
+                    </tr>
+                    <tr th:each="product : ${listProductDto}" th:if="${product.categoryId == 2}">
+                        <td>
+                            <a th:href="@{/productDetail/{productId}(productId=${product.productId})}">
+                                <p th:text="*{product.productName}"></p>
+                            </a>
+                        </td>
+                        <td th:text="*{product.price}"></td>
+                        <td th:text="*{product.description}"></td>
+                    </tr>
+                </table>
+            </div>
+
+            <label><input type="radio" name="TAB">スマートフォン・タブレット</label>
+            <div class="tab-content">
+                <table border="2" align="center">
+                    <tr>
+                        <th>商品名</th>
+                        <th>値段</th>
+                        <th>特徴</th>
+                    </tr>
+                    <tr th:each="product : ${listProductDto}" th:if="${product.categoryId == 3}">
+                        <td>
+                            <a th:href="@{/productDetail/{productId}(productId=${product.productId})}">
+                                <p th:text="*{product.productName}"></p>
+                            </a>
+                        </td>
+                        <td th:text="*{product.price}"></td>
+                        <td th:text="*{product.description}"></td>
+                    </tr>
+                </table>
+            </div>
+
+            <label><input type="radio" name="TAB">キッチン用品</label>
+            <div class="tab-content">
+                <table border="2" align="center">
+                    <tr>
+                        <th>商品名</th>
+                        <th>値段</th>
+                        <th>特徴</th>
+                    </tr>
+                    <tr th:each="product : ${listProductDto}" th:if="${product.categoryId == 4}">
+                        <td>
+                            <a th:href="@{/productDetail/{productId}(productId=${product.productId})}">
+                                <p th:text="*{product.productName}"></p>
+                            </a>
+                        </td>
+                        <td th:text="*{product.price}"></td>
+                        <td th:text="*{product.description}"></td>
+                    </tr>
+                </table>
+            </div>
+
+            <label><input type="radio" name="TAB">食品・飲料</label>
+            <div class="tab-content">
+                <table border="2" align="center">
+                    <tr>
+                        <th>商品名</th>
+                        <th>値段</th>
+                        <th>特徴</th>
+                    </tr>
+                    <tr th:each="product : ${listProductDto}" th:if="${product.categoryId == 5}">
+                        <td>
+                            <a th:href="@{/productDetail/{productId}(productId=${product.productId})}">
+                                <p th:text="*{product.productName}"></p>
+                            </a>
+                        </td>
+                        <td th:text="*{product.price}"></td>
+                        <td th:text="*{product.description}"></td>
+                    </tr>
+                </table>
+            </div>
+
+            <label><input type="radio" name="TAB">ファッション</label>
+            <div class="tab-content">
+                <table border="2" align="center">
+                    <tr>
+                        <th>商品名</th>
+                        <th>値段</th>
+                        <th>特徴</th>
+                    </tr>
+                    <tr th:each="product : ${listProductDto}" th:if="${product.categoryId == 6}">
+                        <td>
+                            <a th:href="@{/productDetail/{productId}(productId=${product.productId})}">
+                                <p th:text="*{product.productName}"></p>
+                            </a>
+                        </td>
+                        <td th:text="*{product.price}"></td>
+                        <td th:text="*{product.description}"></td>
+                    </tr>
+                </table>
+            </div>
+
+            <label><input type="radio" name="TAB">スポーツ・アウトドア</label>
+            <div class="tab-content">
+                <table border="2" align="center">
+                    <tr>
+                        <th>商品名</th>
+                        <th>値段</th>
+                        <th>特徴</th>
+                    </tr>
+                    <tr th:each="product : ${listProductDto}" th:if="${product.categoryId == 7}">
+                        <td>
+                            <a th:href="@{/productDetail/{productId}(productId=${product.productId})}">
+                                <p th:text="*{product.productName}"></p>
+                            </a>
+                        </td>
+                        <td th:text="*{product.price}"></td>
+                        <td th:text="*{product.description}"></td>
+                    </tr>
+                </table>
+            </div>
+
+            <label><input type="radio" name="TAB">本・文房具</label>
+            <div class="tab-content">
+                <table border="2" align="center">
+                    <tr>
+                        <th>商品名</th>
+                        <th>値段</th>
+                        <th>特徴</th>
+                    </tr>
+                    <tr th:each="product : ${listProductDto}" th:if="${product.categoryId == 8}">
+                        <td>
+                            <a th:href="@{/productDetail/{productId}(productId=${product.productId})}">
+                                <p th:text="*{product.productName}"></p>
+                            </a>
+                        </td>
+                        <td th:text="*{product.price}"></td>
+                        <td th:text="*{product.description}"></td>
+                    </tr>
+                </table>
+            </div>
+
+            <label><input type="radio" name="TAB">ゲーム・おもちゃ</label>
+            <div class="tab-content">
+                <table border="2" align="center">
+                    <tr>
+                        <th>商品名</th>
+                        <th>値段</th>
+                        <th>特徴</th>
+                    </tr>
+                    <tr th:each="product : ${listProductDto}" th:if="${product.categoryId == 9}">
+                        <td>
+                            <a th:href="@{/productDetail/{productId}(productId=${product.productId})}">
+                                <p th:text="*{product.productName}"></p>
+                            </a>
+                        </td>
+                        <td th:text="*{product.price}"></td>
+                        <td th:text="*{product.description}"></td>
+                    </tr>
+                </table>
+            </div>
+
+            <label><input type="radio" name="TAB">日用品</label>
+            <div class="tab-content">
+                <table border="2" align="center">
+                    <tr>
+                        <th>商品名</th>
+                        <th>値段</th>
+                        <th>特徴</th>
+                    </tr>
+                    <tr th:each="product : ${listProductDto}" th:if="${product.categoryId == 10}">
+                        <td>
+                            <a th:href="@{/productDetail/{productId}(productId=${product.productId})}">
+                                <p th:text="*{product.productName}"></p>
+                            </a>
+                        </td>
+                        <td th:text="*{product.price}"></td>
+                        <td th:text="*{product.description}"></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+
+        <form method="get" th:action="@{/top}">
+            <button class="common-button">
+                メニュー画面に戻る
+            </button>
+        </form>
+
+    </div>
+</body>
+
+</html>

@@ -17,7 +17,7 @@ public class SecurityConfig {
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
 
         http
-                .authorizeHttpRequests(auth -> auth.requestMatchers("/login", "/top", "/revisePassword", "/searchMemberByBirth", "/revisePasswordComplete", "/logout", "/css/**", "/js/**").permitAll().anyRequest().authenticated())
+                .authorizeHttpRequests(auth -> auth.requestMatchers("/login", "/top", "/revisePassword", "/searchMemberByBirth", "/revisePasswordComplete", "/productList", "/logout", "/css/**", "/js/**").permitAll().anyRequest().authenticated())
                 // 直下は全許可
                 //.authorizeHttpRequests(auth -> auth.anyRequest().permitAll())
                 .formLogin(form -> form

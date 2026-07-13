@@ -83,6 +83,31 @@
                 </form>
                 <br>
             </details>
+
+            <details class="details">
+                <summary class="details-summary">商品選択・注文一覧</summary>
+                <form th:action="@{/productList}" method="get">
+                    <button class="common-button">
+                        商品選択
+                    </button>
+                </form>
+                <form>
+                    <button class="common-button">
+                        商品購入決済
+                    </button>
+                </form>
+                <form>
+                    <button class="common-button">
+                        注文一覧
+                    </button>
+                </form>
+                <form>
+                    <button class="common-button">
+                        注文取り消し
+                    </button>
+                </form>
+                <br>
+            </details>
         </div>
 
     </div>

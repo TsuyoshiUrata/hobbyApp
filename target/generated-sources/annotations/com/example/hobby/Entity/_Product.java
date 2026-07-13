@@ -1,7 +1,7 @@
 package com.example.hobby.Entity;
 
 /** */
-@javax.annotation.processing.Generated(value = { "Doma", "2.58.0" }, date = "2026-07-12T19:16:57.841+0900")
+@javax.annotation.processing.Generated(value = { "Doma", "2.58.0" }, date = "2026-07-12T19:32:04.819+0900")
 @org.seasar.doma.EntityTypeImplementation
 public final class _Product extends org.seasar.doma.jdbc.entity.AbstractEntityType<com.example.hobby.Entity.Product> {
 
@@ -60,7 +60,7 @@ public final class _Product extends org.seasar.doma.jdbc.entity.AbstractEntityTy
     private void initializeMaps(java.util.Map<String, org.seasar.doma.jdbc.entity.EntityPropertyType<com.example.hobby.Entity.Product, ?>> __map, java.util.Map<String, org.seasar.doma.jdbc.entity.EmbeddedPropertyType<com.example.hobby.Entity.Product, ?>> __embeddedMap) {
         __map.put("productId", new org.seasar.doma.jdbc.entity.AssignedIdPropertyType<com.example.hobby.Entity.Product, java.lang.String, java.lang.String>(com.example.hobby.Entity.Product.class, org.seasar.doma.internal.jdbc.scalar.BasicScalarSuppliers.ofString(), "productId", "product_id", __namingType, false));
         __map.put("categoryId", new org.seasar.doma.jdbc.entity.DefaultPropertyType<com.example.hobby.Entity.Product, java.lang.String, java.lang.String>(com.example.hobby.Entity.Product.class, org.seasar.doma.internal.jdbc.scalar.BasicScalarSuppliers.ofString(), "categoryId", "category_id", __namingType, true, true, false));
-        __map.put("categoryName", new org.seasar.doma.jdbc.entity.DefaultPropertyType<com.example.hobby.Entity.Product, java.lang.String, java.lang.String>(com.example.hobby.Entity.Product.class, org.seasar.doma.internal.jdbc.scalar.BasicScalarSuppliers.ofString(), "categoryName", "category_name", __namingType, true, true, false));
+        __map.put("productName", new org.seasar.doma.jdbc.entity.DefaultPropertyType<com.example.hobby.Entity.Product, java.lang.String, java.lang.String>(com.example.hobby.Entity.Product.class, org.seasar.doma.internal.jdbc.scalar.BasicScalarSuppliers.ofString(), "productName", "product_name", __namingType, true, true, false));
         __map.put("manufacturer", new org.seasar.doma.jdbc.entity.DefaultPropertyType<com.example.hobby.Entity.Product, java.lang.String, java.lang.String>(com.example.hobby.Entity.Product.class, org.seasar.doma.internal.jdbc.scalar.BasicScalarSuppliers.ofString(), "manufacturer", "manufacturer", __namingType, true, true, false));
         __map.put("price", new org.seasar.doma.jdbc.entity.DefaultPropertyType<com.example.hobby.Entity.Product, java.lang.Integer, java.lang.Integer>(com.example.hobby.Entity.Product.class, org.seasar.doma.internal.jdbc.scalar.BasicScalarSuppliers.ofPrimitiveInt(), "price", "price", __namingType, true, true, false));
         __map.put("releaseDate", new org.seasar.doma.jdbc.entity.DefaultPropertyType<com.example.hobby.Entity.Product, java.time.LocalDate, java.time.LocalDate>(com.example.hobby.Entity.Product.class, org.seasar.doma.internal.jdbc.scalar.BasicScalarSuppliers.ofLocalDate(), "releaseDate", "release_date", __namingType, true, true, false));
@@ -207,7 +207,7 @@ public final class _Product extends org.seasar.doma.jdbc.entity.AbstractEntityTy
         com.example.hobby.Entity.Product entity = new com.example.hobby.Entity.Product();
         if (__args.get("productId") != null) __args.get("productId").save(entity);
         if (__args.get("categoryId") != null) __args.get("categoryId").save(entity);
-        if (__args.get("categoryName") != null) __args.get("categoryName").save(entity);
+        if (__args.get("productName") != null) __args.get("productName").save(entity);
         if (__args.get("manufacturer") != null) __args.get("manufacturer").save(entity);
         if (__args.get("price") != null) __args.get("price").save(entity);
         if (__args.get("releaseDate") != null) __args.get("releaseDate").save(entity);

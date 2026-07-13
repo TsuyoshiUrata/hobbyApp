@@ -17,14 +17,14 @@ import org.seasar.doma.Id;
 @Getter
 @Setter
 @NoArgsConstructor
-public class Product implements Serializable {
+public class ProductComposit implements Serializable {
 
     @Id
     @Column(name = "product_id")
     private String productId;
 
     @Column(name = "category_id")
-    private String categoryId;
+    private int categoryId;
 
     @Column(name = "product_name")
     private String productName;
@@ -46,4 +46,7 @@ public class Product implements Serializable {
 
     @Column(name = "description")
     private String description;
+
+    @Column(name = "category_name")
+    private String categoryName;
 }
