@@ -335,7 +335,6 @@ button:active {
     margin: 0 auto;
 }
 
-
 /* 在庫バッジ */
 .stock-badge {
     position: absolute;
@@ -353,6 +352,27 @@ button:active {
     border-radius: 999px;
     z-index: 10;
     box-shadow: 0 4px 8px rgba(0,0,0,.25);
+}
+
+.product-name-cell {
+    position: relative;
+    padding-top: 30px; /* バッジが被らないよう余白を確保 */
+}
+
+.stock-badge {
+    position: absolute;
+    top: 15px;
+    left: -12px;
+
+    background-color: #e60012;
+    color: white;
+    font-weight: bold;
+    font-size: 12px;
+
+    padding: 3px 10px;
+    border-radius: 999px;
+
+    white-space: nowrap;
 }
 
 
