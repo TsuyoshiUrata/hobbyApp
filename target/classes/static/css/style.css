@@ -376,7 +376,7 @@ button:active {
 
 .stock-badge {
     position: absolute;
-    top: 15px;
+    top: 10px;
     left: -12px;
 
     background-color: #e60012;
