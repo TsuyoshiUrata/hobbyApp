@@ -21,28 +21,60 @@
 
 
 
-            <div sec:authorize="isAuthenticated()">
-                <span sec:authentication="name"></span>
-                <span sec:authentication="principal.memberDto.memberName"></span>
-
-                <span th:switch="${#authentication.principal.memberDto.memberRole}">
-                    <span th:case="'employee'">従業員</span>
-                    <span th:case="'customer'">顧客</span>
-                    <span th:case="*">不明</span>
-                </span>
-
-                <span sec:authentication="principal.memberDto.memberRank"></span>
-            </div>
-
             <div sec:authorize="isAnonymous()">
-                ゲスト
+                未ログイン
             </div>
+
+            <div sec:authorize="isAuthenticated()">
+                <button id="showDialog" class="header-button">メンバー情報</button>
+                <dialog>
+                    <div style="text-align: center;">
+                        <h3>メンバー情報</h3>
+
+                        <p>メンバーコード：<span th:text="${#authentication.name}"></span></p>
+                        <p>名前：<span th:text="${#authentication.principal.memberDto.memberName}"></span></p>
+
+                        <div th:switch="${#authentication.principal.memberDto.memberRole}">
+                            <p th:case="'employee'">ステータス：従業員</p>
+                            <p th:case="'customer'">ステータス：顧客</p>
+                            <p th:case="*">ステータス：不明</p>
+                        </div>
+                        <p>ランク：<span sec:authentication="principal.memberDto.memberRank"></span></p>
+
+
+                        <p align="center">
+                            <button id="closeDialog" class="search-button">とじる</button>
+                        </p>
+                    </div>
+                </dialog>
+            </div>
+            <form th:action="@{/logout}" method="post" sec:authorize="isAuthenticated()" style="margin-left:auto;">
+                <button class="header-button">
+                    ログアウト
+                </button>
+            </form>
+
 
         </div>
 
 
     </div>
     <hr>
+
+    <script>
+        const dialog = document.querySelector("dialog");
+
+        const showButton = document.querySelector("#showDialog");
+        showButton.addEventListener("click", () => {
+            dialog.showModal(); // モーダルダイアログを開く
+        });
+
+        const closeButton = document.querySelector("#closeDialog");
+        closeButton.addEventListener("click", () => {
+            dialog.close(); // モーダルダイアログを閉じる
+        });
+
+    </script>
 </body>
 
 </html>

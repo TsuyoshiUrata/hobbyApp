@@ -23,6 +23,15 @@
 
         <h1>商品選択</h1>
 
+        <form th:action="@{/searchProductList}" th:object="${productForm}" method="get"
+            style="display:flex; justify-content:center; align-items:center; gap:8px;">
+
+            <input type="text" th:field="*{productName}" style="width: 250px;">
+            <button class="search-button" type="submit">商品検索</button>
+        </form>
+
+        <br>
+
         <div class="tab-switch">
             <label><input type="radio" name="TAB" checked>家電</label>
             <div class="tab-content">
@@ -35,7 +44,8 @@
                     <div class="product-table-area">
                         <tr th:each="product : ${listProductDto}" th:if="${product.categoryId == 1}">
                             <td class="product-name-cell">
-                                <span class="stock-badge" th:text="'残り' + ${product.stock} + '点'">
+                                <span class="stock-badge" th:text="'残り' + ${product.stock} + '点'"
+                                    th:if="${product.stock}<10">
                                 </span>
                                 <a th:href="@{/productDetail/{productId}(productId=${product.productId})}">
                                     <span th:text="${product.productName}"></span>
@@ -56,15 +66,20 @@
                         <th>値段</th>
                         <th>特徴</th>
                     </tr>
-                    <tr th:each="product : ${listProductDto}" th:if="${product.categoryId == 2}">
-                        <td>
-                            <a th:href="@{/productDetail/{productId}(productId=${product.productId})}">
-                                <p th:text="*{product.productName}"></p>
-                            </a>
-                        </td>
-                        <td th:text="*{product.price}"></td>
-                        <td th:text="*{product.description}"></td>
-                    </tr>
+                    <div class="product-table-area">
+                        <tr th:each="product : ${listProductDto}" th:if="${product.categoryId == 2}">
+                            <td class="product-name-cell">
+                                <span class="stock-badge" th:text="'残り' + ${product.stock} + '点'"
+                                    th:if="${product.stock}<10">
+                                </span>
+                                <a th:href="@{/productDetail/{productId}(productId=${product.productId})}">
+                                    <span th:text="${product.productName}"></span>
+                                </a>
+                            </td>
+                            <td th:text="${product.price}"></td>
+                            <td th:text="${product.description}"></td>
+                        </tr>
+                    </div>
                 </table>
             </div>
 
@@ -76,15 +91,20 @@
                         <th>値段</th>
                         <th>特徴</th>
                     </tr>
-                    <tr th:each="product : ${listProductDto}" th:if="${product.categoryId == 3}">
-                        <td>
-                            <a th:href="@{/productDetail/{productId}(productId=${product.productId})}">
-                                <p th:text="*{product.productName}"></p>
-                            </a>
-                        </td>
-                        <td th:text="*{product.price}"></td>
-                        <td th:text="*{product.description}"></td>
-                    </tr>
+                    <div class="product-table-area">
+                        <tr th:each="product : ${listProductDto}" th:if="${product.categoryId == 3}">
+                            <td class="product-name-cell">
+                                <span class="stock-badge" th:text="'残り' + ${product.stock} + '点'"
+                                    th:if="${product.stock}<10">
+                                </span>
+                                <a th:href="@{/productDetail/{productId}(productId=${product.productId})}">
+                                    <span th:text="${product.productName}"></span>
+                                </a>
+                            </td>
+                            <td th:text="${product.price}"></td>
+                            <td th:text="${product.description}"></td>
+                        </tr>
+                    </div>
                 </table>
             </div>
 
@@ -96,15 +116,20 @@
                         <th>値段</th>
                         <th>特徴</th>
                     </tr>
-                    <tr th:each="product : ${listProductDto}" th:if="${product.categoryId == 4}">
-                        <td>
-                            <a th:href="@{/productDetail/{productId}(productId=${product.productId})}">
-                                <p th:text="*{product.productName}"></p>
-                            </a>
-                        </td>
-                        <td th:text="*{product.price}"></td>
-                        <td th:text="*{product.description}"></td>
-                    </tr>
+                    <div class="product-table-area">
+                        <tr th:each="product : ${listProductDto}" th:if="${product.categoryId == 4}">
+                            <td class="product-name-cell">
+                                <span class="stock-badge" th:text="'残り' + ${product.stock} + '点'"
+                                    th:if="${product.stock}<10">
+                                </span>
+                                <a th:href="@{/productDetail/{productId}(productId=${product.productId})}">
+                                    <span th:text="${product.productName}"></span>
+                                </a>
+                            </td>
+                            <td th:text="${product.price}"></td>
+                            <td th:text="${product.description}"></td>
+                        </tr>
+                    </div>
                 </table>
             </div>
 
@@ -116,15 +141,20 @@
                         <th>値段</th>
                         <th>特徴</th>
                     </tr>
-                    <tr th:each="product : ${listProductDto}" th:if="${product.categoryId == 5}">
-                        <td>
-                            <a th:href="@{/productDetail/{productId}(productId=${product.productId})}">
-                                <p th:text="*{product.productName}"></p>
-                            </a>
-                        </td>
-                        <td th:text="*{product.price}"></td>
-                        <td th:text="*{product.description}"></td>
-                    </tr>
+                    <div class="product-table-area">
+                        <tr th:each="product : ${listProductDto}" th:if="${product.categoryId == 5}">
+                            <td class="product-name-cell">
+                                <span class="stock-badge" th:text="'残り' + ${product.stock} + '点'"
+                                    th:if="${product.stock}<10">
+                                </span>
+                                <a th:href="@{/productDetail/{productId}(productId=${product.productId})}">
+                                    <span th:text="${product.productName}"></span>
+                                </a>
+                            </td>
+                            <td th:text="${product.price}"></td>
+                            <td th:text="${product.description}"></td>
+                        </tr>
+                    </div>
                 </table>
             </div>
 
@@ -136,15 +166,20 @@
                         <th>値段</th>
                         <th>特徴</th>
                     </tr>
-                    <tr th:each="product : ${listProductDto}" th:if="${product.categoryId == 6}">
-                        <td>
-                            <a th:href="@{/productDetail/{productId}(productId=${product.productId})}">
-                                <p th:text="*{product.productName}"></p>
-                            </a>
-                        </td>
-                        <td th:text="*{product.price}"></td>
-                        <td th:text="*{product.description}"></td>
-                    </tr>
+                    <div class="product-table-area">
+                        <tr th:each="product : ${listProductDto}" th:if="${product.categoryId == 6}">
+                            <td class="product-name-cell">
+                                <span class="stock-badge" th:text="'残り' + ${product.stock} + '点'"
+                                    th:if="${product.stock}<10">
+                                </span>
+                                <a th:href="@{/productDetail/{productId}(productId=${product.productId})}">
+                                    <span th:text="${product.productName}"></span>
+                                </a>
+                            </td>
+                            <td th:text="${product.price}"></td>
+                            <td th:text="${product.description}"></td>
+                        </tr>
+                    </div>
                 </table>
             </div>
 
@@ -156,15 +191,20 @@
                         <th>値段</th>
                         <th>特徴</th>
                     </tr>
-                    <tr th:each="product : ${listProductDto}" th:if="${product.categoryId == 7}">
-                        <td>
-                            <a th:href="@{/productDetail/{productId}(productId=${product.productId})}">
-                                <p th:text="*{product.productName}"></p>
-                            </a>
-                        </td>
-                        <td th:text="*{product.price}"></td>
-                        <td th:text="*{product.description}"></td>
-                    </tr>
+                    <div class="product-table-area">
+                        <tr th:each="product : ${listProductDto}" th:if="${product.categoryId == 7}">
+                            <td class="product-name-cell">
+                                <span class="stock-badge" th:text="'残り' + ${product.stock} + '点'"
+                                    th:if="${product.stock}<10">
+                                </span>
+                                <a th:href="@{/productDetail/{productId}(productId=${product.productId})}">
+                                    <span th:text="${product.productName}"></span>
+                                </a>
+                            </td>
+                            <td th:text="${product.price}"></td>
+                            <td th:text="${product.description}"></td>
+                        </tr>
+                    </div>
                 </table>
             </div>
 
@@ -176,15 +216,20 @@
                         <th>値段</th>
                         <th>特徴</th>
                     </tr>
-                    <tr th:each="product : ${listProductDto}" th:if="${product.categoryId == 8}">
-                        <td>
-                            <a th:href="@{/productDetail/{productId}(productId=${product.productId})}">
-                                <p th:text="*{product.productName}"></p>
-                            </a>
-                        </td>
-                        <td th:text="*{product.price}"></td>
-                        <td th:text="*{product.description}"></td>
-                    </tr>
+                    <div class="product-table-area">
+                        <tr th:each="product : ${listProductDto}" th:if="${product.categoryId == 8}">
+                            <td class="product-name-cell">
+                                <span class="stock-badge" th:text="'残り' + ${product.stock} + '点'"
+                                    th:if="${product.stock}<10">
+                                </span>
+                                <a th:href="@{/productDetail/{productId}(productId=${product.productId})}">
+                                    <span th:text="${product.productName}"></span>
+                                </a>
+                            </td>
+                            <td th:text="${product.price}"></td>
+                            <td th:text="${product.description}"></td>
+                        </tr>
+                    </div>
                 </table>
             </div>
 
@@ -196,15 +241,20 @@
                         <th>値段</th>
                         <th>特徴</th>
                     </tr>
-                    <tr th:each="product : ${listProductDto}" th:if="${product.categoryId == 9}">
-                        <td>
-                            <a th:href="@{/productDetail/{productId}(productId=${product.productId})}">
-                                <p th:text="*{product.productName}"></p>
-                            </a>
-                        </td>
-                        <td th:text="*{product.price}"></td>
-                        <td th:text="*{product.description}"></td>
-                    </tr>
+                    <div class="product-table-area">
+                        <tr th:each="product : ${listProductDto}" th:if="${product.categoryId == 9}">
+                            <td class="product-name-cell">
+                                <span class="stock-badge" th:text="'残り' + ${product.stock} + '点'"
+                                    th:if="${product.stock}<10">
+                                </span>
+                                <a th:href="@{/productDetail/{productId}(productId=${product.productId})}">
+                                    <span th:text="${product.productName}"></span>
+                                </a>
+                            </td>
+                            <td th:text="${product.price}"></td>
+                            <td th:text="${product.description}"></td>
+                        </tr>
+                    </div>
                 </table>
             </div>
 
@@ -216,15 +266,20 @@
                         <th>値段</th>
                         <th>特徴</th>
                     </tr>
-                    <tr th:each="product : ${listProductDto}" th:if="${product.categoryId == 10}">
-                        <td>
-                            <a th:href="@{/productDetail/{productId}(productId=${product.productId})}">
-                                <p th:text="*{product.productName}"></p>
-                            </a>
-                        </td>
-                        <td th:text="*{product.price}"></td>
-                        <td th:text="*{product.description}"></td>
-                    </tr>
+                    <div class="product-table-area">
+                        <tr th:each="product : ${listProductDto}" th:if="${product.categoryId == 10}">
+                            <td class="product-name-cell">
+                                <span class="stock-badge" th:text="'残り' + ${product.stock} + '点'"
+                                    th:if="${product.stock}<10">
+                                </span>
+                                <a th:href="@{/productDetail/{productId}(productId=${product.productId})}">
+                                    <span th:text="${product.productName}"></span>
+                                </a>
+                            </td>
+                            <td th:text="${product.price}"></td>
+                            <td th:text="${product.description}"></td>
+                        </tr>
+                    </div>
                 </table>
             </div>
         </div>

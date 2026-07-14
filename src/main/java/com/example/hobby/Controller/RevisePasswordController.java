@@ -80,6 +80,9 @@ public String revisePassword(@AuthenticationPrincipal CustomUserDetail user, Mod
         // パスワードチェック
         if (!passwordForm.getMemberPass1().equals(passwordForm.getMemberPass2())) {
             model.addAttribute("message", "パスワードが不一致です");
+            MemberDto memberDto = new MemberDto();
+            memberDto.setMemberCode(passwordForm.getMemberCode());
+            model.addAttribute("memberDto", memberDto);
             return "V005_1_revisePassword";
         }
 

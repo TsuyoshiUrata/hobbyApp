@@ -45,6 +45,8 @@ public class ProductServiceImpl implements ProductService {
         return listProductDto;
     }
 
+
+
     public ProductDto productDetail(String productId) {
 
         // 新規作成
@@ -68,13 +70,14 @@ public class ProductServiceImpl implements ProductService {
     public List<ProductDto> searchProductList(String productName) {
 
         // サービスを呼び出す
-        List<ProductComposit> listProductComposit = productDao.productList();
+        List<ProductComposit> listProductComposit = productDao.searchProductList(productName);
 
         // Dtoを新規作成
         List<ProductDto> listProductDto = new ArrayList<ProductDto>();
 
         // Dtoに入れる
         for (ProductComposit productComposit : listProductComposit) {
+            System.out.println(productComposit);
             listProductDto.add(new ProductDto(
                     productComposit.getProductId(),
                     productComposit.getCategoryId(),

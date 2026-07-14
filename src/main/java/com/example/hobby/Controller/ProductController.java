@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 
 import com.example.hobby.Dto.MemberDto;
 import com.example.hobby.Dto.ProductDto;
+import com.example.hobby.Form.ProductForm;
 import com.example.hobby.Service.ProductService;
 
 @Controller
@@ -26,8 +27,11 @@ public class ProductController {
 
         // サービスを呼び出す
         List<ProductDto> listProductDto = productListService.productList();
+        // formの格納
+        ProductForm productForm = new ProductForm();
         // modelに格納
         model.addAttribute("listProductDto", listProductDto);
+        model.addAttribute("productForm", productForm);
         return "V101_1_productList.html";
     }
 
@@ -39,6 +43,16 @@ public class ProductController {
         model.addAttribute("productDto", productDto);
 
         return "V101_2_productDetail.html";
+    }
+
+    @GetMapping("/searchProductList")
+    public String searchProductList(Model model, ProductForm productForm) {
+
+        // サービスを呼び出す
+        List<ProductDto> listProductDto = productListService.searchProductList(productForm.getProductName());
+        // modelに格納
+        model.addAttribute("listProductDto", listProductDto);
+        return "V101_3_searchProductList";
     }
 
 }

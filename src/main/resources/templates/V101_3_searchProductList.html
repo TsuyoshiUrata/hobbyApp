@@ -21,40 +21,29 @@
     <div class="body">
 
 
-        <h1>商品詳細</h1>
+        <h1>商品選択</h1>
 
-<div class="product-table-area">
-        <table  border="2" align="center">
-            
+
+        <table border="2" align="center">
             <tr>
                 <th>商品名</th>
-                <td th:text="${productDto.productName}"></td>
-            </tr>
-            <tr>
-                <th>製造会社</th>
-                <td th:text="${productDto.manufacturer}"></td>
-            </tr>
-            <tr>
                 <th>値段</th>
-                <td th:text="${productDto.price}"></td>
+                <th>特徴</th>
             </tr>
-            <tr>
-                <th>在庫</th>
-                <td th:text="${productDto.stock}"></td>
-            </tr>
-            <tr>
-                <th>注文締切日</th>
-                <td th:text="${productDto.orderDeadline}"></td>
-            </tr>
-            <tr>
-                <th>詳細</th>
-                <td th:text="${productDto.description}"></td>
-            </tr>
-
+            <div class="product-table-area">
+                <tr th:each="product : ${listProductDto}">
+                    <td class="product-name-cell">
+                        <span class="stock-badge" th:text="'残り' + ${product.stock} + '点'" th:if="${product.stock}<10">
+                        </span>
+                        <a th:href="@{/productDetail/{productId}(productId=${product.productId})}">
+                            <span th:text="${product.productName}"></span>
+                        </a>
+                    </td>
+                    <td th:text="${product.price}"></td>
+                    <td th:text="${product.description}"></td>
+                </tr>
+            </div>
         </table>
-        </div>
-
-
 
 
         <form th:action="@{/productList}" method="get">
@@ -62,6 +51,8 @@
         </form>
 
     </div>
+
+
 </body>
 
 </html>
