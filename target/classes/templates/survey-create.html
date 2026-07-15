@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <title>アンケート作成</title>
+    <link rel="stylesheet" th:href="@{/css/survey-create.css}">
+</head>
+
+<body>
+
+    <div class="page">
+
+        <!--=========================
+            左サイドバー
+    ==========================-->
+        <aside class="sidebar">
+
+            <!-- 管理者 -->
+            <section class="side-card">
+
+                <div class="side-header">
+                    <h2>管理者一覧</h2>
+                    <button id="editManagerBtn">編集</button>
+                </div>
+
+                <ul id="managerList" class="manager-list">
+                    <li>山田 太郎</li>
+                    <li>佐藤 花子</li>
+                    <li>鈴木 一郎</li>
+                </ul>
+
+            </section>
+
+            <!-- 公開先 -->
+            <section class="side-card">
+
+                <div class="side-header">
+                    <h2>公開先</h2>
+                    <button id="editHeadquartersBtn">編集</button>
+                </div>
+
+                <ul id="publishList" class="publish-list">
+                    <li>営業本部</li>
+                    <li>開発本部</li>
+                    <li>管理本部</li>
+                </ul>
+
+            </section>
+
+            <!-- 開始日 -->
+            <section class="side-card">
+
+                <div class="side-header">
+                    <h2>開始日</h2>
+                    <button id="editStartDateBtn">編集</button>
+                </div>
+
+                <p id="startDate">
+                    2026-07-15
+                </p>
+
+            </section>
+
+            <!-- 終了日 -->
+            <section class="side-card">
+
+                <div class="side-header">
+                    <h2>終了日</h2>
+                    <button id="editEndDateBtn">編集</button>
+                </div>
+
+                <p id="endDate">
+                    2026-08-31
+                </p>
+
+            </section>
+
+        </aside>
+
+        <!--=========================
+            メイン
+    ==========================-->
+
+        <main class="main">
+
+            <!-- アンケート情報 -->
+
+            <section class="survey-info">
+
+                <div class="title-row">
+
+                    <div>
+
+                        <h2 id="surveyTitle">アンケート名：社員満足度アンケート</h2>
+
+                        <p id="surveyDescription">
+                            説明：
+                            本アンケートは社員満足度を把握する目的で実施します。
+                        </p>
+
+                    </div>
+
+                    <button id="editSurveyBtn">
+                        編集
+                    </button>
+
+                </div>
+
+            </section>
+
+            <!--====================
+            質問一覧
+        ====================-->
+
+            <section id="questions">
+
+                <!-- 初期質問 -->
+
+            </section>
+
+            <!--====================
+            質問追加
+        ====================-->
+
+            <details class="accordion">
+
+                <summary>
+
+                    質問追加
+
+                </summary>
+
+                <div class="accordion-body">
+
+                    <label>
+
+                        <input type="radio" name="questionType" value="single" checked>
+
+                        択一選択
+
+                    </label>
+
+                    <label>
+
+                        <input type="radio" name="questionType" value="multiple">
+
+                        複数選択
+
+                    </label>
+
+                    <label>
+
+                        <input type="radio" name="questionType" value="text">
+
+                        自由記述
+
+                    </label>
+
+                    <button id="addQuestionBtn">
+
+                        質問追加
+
+                    </button>
+
+                </div>
+
+            </details>
+
+            <!--====================
+            下部ボタン
+        ====================-->
+
+            <section class="bottom-buttons">
+
+                <button>
+
+                    キャンセル
+
+                </button>
+
+                <button>
+
+                    一時保存
+
+                </button>
+
+                <button>
+
+                    保存
+
+                </button>
+
+            </section>
+
+        </main>
+
+    </div>
+
+    <!--=========================
+        共通モーダル
+==========================-->
+
+    <div id="modal" class="modal">
+
+        <div class="modal-content">
+
+            <div class="modal-header">
+
+                <h2 id="modalTitle"></h2>
+
+            </div>
+
+            <div id="modalBody" class="modal-body">
+
+            </div>
+
+            <div class="modal-footer">
+
+                <button id="cancelModal">
+
+                    キャンセル
+
+                </button>
+
+                <button id="saveModal">
+
+                    保存
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!--=========================
+        削除確認モーダル
+==========================-->
+
+    <div id="confirmModal" class="modal">
+
+        <div class="modal-content">
+
+            <h2>
+
+                本当に削除しますか？
+
+            </h2>
+
+            <div class="modal-footer">
+
+                <button id="cancelDelete">
+
+                    キャンセル
+
+                </button>
+
+                <button id="confirmDelete">
+
+                    削除
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <script th:src="@{/js/survey-create.js}"></script>
+
+</body>
+
+</html>

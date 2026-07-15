@@ -2,7 +2,7 @@ package com.example.hobby.Dao;
 
 /** */
 @org.springframework.stereotype.Repository()
-@javax.annotation.processing.Generated(value = { "Doma", "2.58.0" }, date = "2026-07-12T21:58:15.617+0900")
+@javax.annotation.processing.Generated(value = { "Doma", "2.58.0" }, date = "2026-07-15T18:26:41.965+0900")
 @org.seasar.doma.DaoImplementation
 public class ProductDaoImpl implements com.example.hobby.Dao.ProductDao, org.seasar.doma.jdbc.ConfigProvider {
 
@@ -15,6 +15,8 @@ public class ProductDaoImpl implements com.example.hobby.Dao.ProductDao, org.sea
     private static final java.lang.reflect.Method __method1 = org.seasar.doma.internal.jdbc.dao.DaoImplSupport.getDeclaredMethod(com.example.hobby.Dao.ProductDao.class, "productDetail", java.lang.String.class);
 
     private static final java.lang.reflect.Method __method2 = org.seasar.doma.internal.jdbc.dao.DaoImplSupport.getDeclaredMethod(com.example.hobby.Dao.ProductDao.class, "searchProductList", java.lang.String.class);
+
+    private static final java.lang.reflect.Method __method3 = org.seasar.doma.internal.jdbc.dao.DaoImplSupport.getDeclaredMethod(com.example.hobby.Dao.ProductDao.class, "updateProductStock", com.example.hobby.Entity.Product.class);
 
     private final org.seasar.doma.internal.jdbc.dao.DaoImplSupport __support;
 
@@ -119,6 +121,39 @@ public class ProductDaoImpl implements com.example.hobby.Dao.ProductDao, org.sea
             return __result;
         } catch (java.lang.RuntimeException __e) {
             __support.throwing("com.example.hobby.Dao.ProductDaoImpl", "searchProductList", __e);
+            throw __e;
+        }
+    }
+
+    @Override
+    public int updateProductStock(com.example.hobby.Entity.Product product) {
+        __support.entering("com.example.hobby.Dao.ProductDaoImpl", "updateProductStock", product);
+        try {
+            if (product == null) {
+                throw new org.seasar.doma.DomaNullPointerException("product");
+            }
+            org.seasar.doma.jdbc.query.AutoUpdateQuery<com.example.hobby.Entity.Product> __query = __support.getQueryImplementors().createAutoUpdateQuery(__method3, com.example.hobby.Entity._Product.getSingletonInternal());
+            __query.setMethod(__method3);
+            __query.setConfig(__support.getConfig());
+            __query.setEntity(product);
+            __query.setCallerClassName("com.example.hobby.Dao.ProductDaoImpl");
+            __query.setCallerMethodName("updateProductStock");
+            __query.setQueryTimeout(-1);
+            __query.setSqlLogType(org.seasar.doma.jdbc.SqlLogType.FORMATTED);
+            __query.setNullExcluded(false);
+            __query.setVersionIgnored(false);
+            __query.setIncludedPropertyNames();
+            __query.setExcludedPropertyNames();
+            __query.setUnchangedPropertyIncluded(false);
+            __query.setOptimisticLockExceptionSuppressed(false);
+            __query.prepare();
+            org.seasar.doma.jdbc.command.UpdateCommand __command = __support.getCommandImplementors().createUpdateCommand(__method3, __query);
+            int __result = __command.execute();
+            __query.complete();
+            __support.exiting("com.example.hobby.Dao.ProductDaoImpl", "updateProductStock", __result);
+            return __result;
+        } catch (java.lang.RuntimeException __e) {
+            __support.throwing("com.example.hobby.Dao.ProductDaoImpl", "updateProductStock", __e);
             throw __e;
         }
     }
