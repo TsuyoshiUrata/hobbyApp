@@ -12,4 +12,4 @@ SELECT
 FROM product
 INNER JOIN category
 ON product.category_id = category.category_id
-WHERE product.product_name Like /*@infix(productName)*/'掃除機'
+WHERE product.product_name LIKE /* @infix(productName) */'%掃除機%'

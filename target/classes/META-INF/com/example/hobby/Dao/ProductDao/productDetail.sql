@@ -1,4 +1,4 @@
-SELECT     
+SELECT
     product.product_id,
     product.category_id,
     product.product_name,

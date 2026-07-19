@@ -1,7 +1,7 @@
 package com.example.hobby.Entity;
 
 /** */
-@javax.annotation.processing.Generated(value = { "Doma", "2.58.0" }, date = "2026-07-15T18:35:36.307+0900")
+@javax.annotation.processing.Generated(value = { "Doma", "2.58.0" }, date = "2026-07-19T16:07:44.234+0900")
 @org.seasar.doma.EntityTypeImplementation
 public final class _OrderDetail extends org.seasar.doma.jdbc.entity.AbstractEntityType<com.example.hobby.Entity.OrderDetail> {
 
@@ -45,9 +45,9 @@ public final class _OrderDetail extends org.seasar.doma.jdbc.entity.AbstractEnti
         __tableName = "";
         __isQuoteRequired = false;
         java.util.List<org.seasar.doma.jdbc.entity.EntityPropertyType<com.example.hobby.Entity.OrderDetail, ?>> __idList = new java.util.ArrayList<>();
-        java.util.List<org.seasar.doma.jdbc.entity.EntityPropertyType<com.example.hobby.Entity.OrderDetail, ?>> __list = new java.util.ArrayList<>(1);
-        java.util.Map<String, org.seasar.doma.jdbc.entity.EntityPropertyType<com.example.hobby.Entity.OrderDetail, ?>> __map = new java.util.LinkedHashMap<>(1);
-        java.util.Map<String, org.seasar.doma.jdbc.entity.EmbeddedPropertyType<com.example.hobby.Entity.OrderDetail, ?>> __embeddedMap = new java.util.LinkedHashMap<>(1);
+        java.util.List<org.seasar.doma.jdbc.entity.EntityPropertyType<com.example.hobby.Entity.OrderDetail, ?>> __list = new java.util.ArrayList<>(5);
+        java.util.Map<String, org.seasar.doma.jdbc.entity.EntityPropertyType<com.example.hobby.Entity.OrderDetail, ?>> __map = new java.util.LinkedHashMap<>(5);
+        java.util.Map<String, org.seasar.doma.jdbc.entity.EmbeddedPropertyType<com.example.hobby.Entity.OrderDetail, ?>> __embeddedMap = new java.util.LinkedHashMap<>(5);
         initializeMaps(__map, __embeddedMap);
         initializeIdList(__map, __idList);
         initializeList(__map, __list);
@@ -58,11 +58,15 @@ public final class _OrderDetail extends org.seasar.doma.jdbc.entity.AbstractEnti
     }
 
     private void initializeMaps(java.util.Map<String, org.seasar.doma.jdbc.entity.EntityPropertyType<com.example.hobby.Entity.OrderDetail, ?>> __map, java.util.Map<String, org.seasar.doma.jdbc.entity.EmbeddedPropertyType<com.example.hobby.Entity.OrderDetail, ?>> __embeddedMap) {
-        __map.put("orderNumber", new org.seasar.doma.jdbc.entity.AssignedIdPropertyType<com.example.hobby.Entity.OrderDetail, java.lang.String, java.lang.String>(com.example.hobby.Entity.OrderDetail.class, org.seasar.doma.internal.jdbc.scalar.BasicScalarSuppliers.ofString(), "orderNumber", "order_number", __namingType, false));
+        __map.put("detailId", new org.seasar.doma.jdbc.entity.AssignedIdPropertyType<com.example.hobby.Entity.OrderDetail, java.lang.String, java.lang.String>(com.example.hobby.Entity.OrderDetail.class, org.seasar.doma.internal.jdbc.scalar.BasicScalarSuppliers.ofString(), "detailId", "detail_id", __namingType, false));
+        __map.put("orderId", new org.seasar.doma.jdbc.entity.DefaultPropertyType<com.example.hobby.Entity.OrderDetail, java.lang.String, java.lang.String>(com.example.hobby.Entity.OrderDetail.class, org.seasar.doma.internal.jdbc.scalar.BasicScalarSuppliers.ofString(), "orderId", "order_id", __namingType, true, true, false));
+        __map.put("productId", new org.seasar.doma.jdbc.entity.DefaultPropertyType<com.example.hobby.Entity.OrderDetail, java.lang.String, java.lang.String>(com.example.hobby.Entity.OrderDetail.class, org.seasar.doma.internal.jdbc.scalar.BasicScalarSuppliers.ofString(), "productId", "product_id", __namingType, true, true, false));
+        __map.put("quantity", new org.seasar.doma.jdbc.entity.DefaultPropertyType<com.example.hobby.Entity.OrderDetail, java.lang.String, java.lang.String>(com.example.hobby.Entity.OrderDetail.class, org.seasar.doma.internal.jdbc.scalar.BasicScalarSuppliers.ofString(), "quantity", "quantity", __namingType, true, true, false));
+        __map.put("price", new org.seasar.doma.jdbc.entity.DefaultPropertyType<com.example.hobby.Entity.OrderDetail, java.lang.String, java.lang.String>(com.example.hobby.Entity.OrderDetail.class, org.seasar.doma.internal.jdbc.scalar.BasicScalarSuppliers.ofString(), "price", "price", __namingType, true, true, false));
     }
 
     private void initializeIdList(java.util.Map<String, org.seasar.doma.jdbc.entity.EntityPropertyType<com.example.hobby.Entity.OrderDetail, ?>> __map, java.util.List<org.seasar.doma.jdbc.entity.EntityPropertyType<com.example.hobby.Entity.OrderDetail, ?>> __idList) {
-        __idList.add(__map.get("orderNumber"));
+        __idList.add(__map.get("detailId"));
     }
 
     private void initializeList(java.util.Map<String, org.seasar.doma.jdbc.entity.EntityPropertyType<com.example.hobby.Entity.OrderDetail, ?>> __map, java.util.List<org.seasar.doma.jdbc.entity.EntityPropertyType<com.example.hobby.Entity.OrderDetail, ?>> __list) {
@@ -197,7 +201,11 @@ public final class _OrderDetail extends org.seasar.doma.jdbc.entity.AbstractEnti
     @Override
     public com.example.hobby.Entity.OrderDetail newEntity(java.util.Map<String, org.seasar.doma.jdbc.entity.Property<com.example.hobby.Entity.OrderDetail, ?>> __args) {
         com.example.hobby.Entity.OrderDetail entity = new com.example.hobby.Entity.OrderDetail();
-        if (__args.get("orderNumber") != null) __args.get("orderNumber").save(entity);
+        if (__args.get("detailId") != null) __args.get("detailId").save(entity);
+        if (__args.get("orderId") != null) __args.get("orderId").save(entity);
+        if (__args.get("productId") != null) __args.get("productId").save(entity);
+        if (__args.get("quantity") != null) __args.get("quantity").save(entity);
+        if (__args.get("price") != null) __args.get("price").save(entity);
         return entity;
     }
 
